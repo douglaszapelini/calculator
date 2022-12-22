@@ -9,8 +9,9 @@
 }
 
 .keyboard {
-  border-top: 1px solid #313233;
+  border-radius: 40px 40px 0 0;
   display: grid;
+  background-color: var(--bg-color-keyboard-dark);
   grid-template-areas: "line1"
     "line2"
     "line3"
@@ -18,17 +19,16 @@
     "line5";
   grid-template-rows: 20% 20% 20% 20% 20%;
   align-items: center;
-  border-top: 1px solid #313233;
 }
 
 
 .key-button,
 .key-button-0 {
   border: none;
-  filter: drop-shadow(-6px -6px 10px var(--rgba-key-dark));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   font-size: 1.5rem;
   background-color: #2B2D2E;
-  border-radius: 6px;
+  border-radius: 50px;
   height: 100%;
 }
 
@@ -44,4 +44,12 @@
   display: flex;
   height: 70%;
   width: 100%;
+}
+
+.first-keys {
+  color: var(--font-color-first-keys);
+}
+
+.other-keys {
+  color: var(--font-color-other-keys);
 }

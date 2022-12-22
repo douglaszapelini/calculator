@@ -1,10 +1,18 @@
 :root {
-  --bg-color-dark: #262829;
+  /*  DARK   */
+  --bg-color-dark: #22252E;
   --font-color-dark: #F6F6F6;
-  --bg-color-key: #2B2D2E;
-  --bg-color-light: #F6F6F6;
+  --bg-color-key-dark: #2B2D2E;
+  --bg-color-keyboard-dark: #2A2C38;
+  /*  LIGHT   */
+  --bg-color-light: #FFFFFF;
   --font-color-light: #262829;
-  --rgba-key-dark: rgba(255, 255, 255, 0.08);
+  --bg-color-keyboard-light: #F9F9F9;
+  --bg-color-key-light: #F2F2F2;
+
+  /* ALL */
+  --font-color-first-keys: #3DCCB8;
+  --font-color-other-keys: #F66069;
 }
 
 * {
