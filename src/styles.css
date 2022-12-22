@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-color-dark: #262829;
+  --font-color-dark: #F6F6F6;
+  --bg-color-key: #2B2D2E;
+  --bg-color-light: #F6F6F6;
+  --font-color-light: #262829;
+  --rgba-key-dark: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color-dark);
+  color: var(--font-color-dark);
+  font-family: 'Jost', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  color: var(--font-color-dark);
+}

@@ -1,0 +1,13 @@
+.container {
+  padding-top: 0.5rem;
+}
+
+.theme {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.theme>i {
+  cursor: pointer;
+}

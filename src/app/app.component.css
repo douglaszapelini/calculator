@@ -1,0 +1,21 @@
+.content {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "header"
+    "calculator"
+    "footer";
+  grid-template-rows: 5% 90% 5%;
+}
+
+header {
+  grid-area: header;
+}
+
+.calculator {
+  grid-area: calculator;
+}
+
+footer {
+  grid-area: footer;
+}
