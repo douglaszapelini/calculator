@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  types = ["AC", "±", "%", "÷", "x", "-", "+", "="];
+  types = ["AC", "", "%", "÷", "x", "-", "+", "="];
 
   @Output() darkChange = new EventEmitter<boolean>();
   @Input() dark: any;
@@ -22,7 +22,7 @@ export class HeaderComponent {
       if (buttons) {
         buttons.forEach(btn => {
           btn.style.setProperty('background-color', 'var(--bg-color-key-dark)');
-          if (!this.types.includes((btn.textContent) ? btn.textContent : '')) {
+          if (!this.types.includes((btn.textContent?.trim()) ? btn.textContent : '')) {
             btn.style.setProperty('color', 'var(--font-color-dark)');
           }
         });
@@ -34,7 +34,8 @@ export class HeaderComponent {
       if (buttons) {
         buttons.forEach(btn => {
           btn.style.setProperty('background-color', 'white');
-          if (!this.types.includes((btn.textContent) ? btn.textContent : '')) {
+          console.log(btn.textContent)
+          if (!this.types.includes((btn.textContent?.trim()) ? btn.textContent : '')) {
             btn.style.setProperty('color', 'var(--font-color-light)');
           }
         });
