@@ -1,18 +1,22 @@
 <div class="container-sm">
   <!-- Display -->
   <div class="display">
+    <div class="number-history">{{firstNumber}}</div>
+    <div class="operation">{{operation}}</div>
+    <div class="number-history">{{lastNumber}}</div>
   </div>
   <!-- Number -->
   <div class="number">
+    {{actualNumber}}
   </div>
   <!-- Keyboard -->
   <div id="keyboard" class="keyboard grid text-center">
     <div class="line">
       <div class="col-3 key">
-        <button class="key-button first-keys">AC</button>
+        <button class="key-button first-keys" (click)="clearNumber()">AC</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button first-keys">
+        <button class="key-button first-keys" (click)="backspace()">
           <i i-bs name="backspace" width="1.7rem" height="1.7rem"></i>
         </button>
       </div>
@@ -25,13 +29,13 @@
     </div>
     <div class="line">
       <div class="col-3 key">
-        <button class="key-button">7</button>
+        <button class="key-button" (click)="addDigit('7')">7</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button">8</button>
+        <button class="key-button" (click)="addDigit('8')">8</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button">9</button>
+        <button class="key-button" (click)="addDigit('9')">9</button>
       </div>
       <div class="col-3 key">
         <button class="key-button other-keys">x</button>
@@ -39,13 +43,13 @@
     </div>
     <div class="line">
       <div class="col-3 key">
-        <button class="key-button">4</button>
+        <button class="key-button" (click)="addDigit('4')">4</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button">5</button>
+        <button class="key-button" (click)="addDigit('5')">5</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button">6</button>
+        <button class="key-button" (click)="addDigit('6')">6</button>
       </div>
       <div class="col-3 key">
         <button class="key-button other-keys">-</button>
@@ -53,13 +57,13 @@
     </div>
     <div class="line">
       <div class="col-3 key">
-        <button class="key-button">1</button>
+        <button class="key-button" (click)="addDigit('1')">1</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button">2</button>
+        <button class="key-button" (click)="addDigit('2')">2</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button">3</button>
+        <button class="key-button" (click)="addDigit('3')">3</button>
       </div>
       <div class="col-3 key">
         <button class="key-button other-keys">+</button>
@@ -67,10 +71,10 @@
     </div>
     <div class="line">
       <div class="col-6 key">
-        <button class="key-button-0">0</button>
+        <button class="key-button-0" (click)="addDigit('0')">0</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button">,</button>
+        <button class="key-button" (click)="addDigit(',')">,</button>
       </div>
       <div class="col-3 key">
         <button class="key-button other-keys">=</button>

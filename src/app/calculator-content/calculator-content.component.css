@@ -9,7 +9,7 @@
 }
 
 .keyboard {
-  border-radius: 40px 40px 0 0;
+  border-radius: 40px;
   display: grid;
   background-color: var(--bg-color-keyboard-dark);
   grid-template-areas: "line1"
@@ -50,6 +50,27 @@
   color: var(--font-color-first-keys);
 }
 
-.other-keys {
+.other-keys,
+.operation {
   color: var(--font-color-other-keys);
+}
+
+.number {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 1.875rem;
+  width: 100%;
+  align-items: center;
+  font-size: 4.5rem;
+}
+
+.display {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+  padding-right: 1.875rem;
 }
