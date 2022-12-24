@@ -89,7 +89,7 @@ export class CalculatorContentComponent {
 
   addOperation(operation: string): void {
     this.resetAfterSetOperation = true;
-    if ((this.firstNumber !== '' && this.actualNumber !== this.firstNumber) && this.lastNumber === '' && this.resetAfterSetOperation) {
+    if ((this.firstNumber !== '' && this.actualNumber !== this.firstNumber) && this.lastNumber === '') {
       this.calculateResult(false);
       this.operation = operation;
       return;
