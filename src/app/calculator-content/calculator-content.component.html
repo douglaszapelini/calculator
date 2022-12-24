@@ -4,6 +4,7 @@
     <div class="number-history">{{firstNumber}}</div>
     <div class="operation">{{operation}}</div>
     <div class="number-history">{{lastNumber}}</div>
+    <div class="operation"*ngIf="lastNumber !== ''">=</div>
   </div>
   <!-- Number -->
   <div class="number">
@@ -21,10 +22,10 @@
         </button>
       </div>
       <div class="col-3 key">
-        <button class="key-button first-keys">%</button>
+        <button class="key-button first-keys" (click)="addOperation('%')">%</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button other-keys">÷</button>
+        <button class="key-button other-keys" (click)="addOperation('÷')">÷</button>
       </div>
     </div>
     <div class="line">
@@ -38,7 +39,7 @@
         <button class="key-button" (click)="addDigit('9')">9</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button other-keys">x</button>
+        <button class="key-button other-keys" (click)="addOperation('x')">x</button>
       </div>
     </div>
     <div class="line">
@@ -52,7 +53,7 @@
         <button class="key-button" (click)="addDigit('6')">6</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button other-keys">-</button>
+        <button class="key-button other-keys" (click)="addOperation('-')">-</button>
       </div>
     </div>
     <div class="line">
@@ -66,7 +67,7 @@
         <button class="key-button" (click)="addDigit('3')">3</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button other-keys">+</button>
+        <button class="key-button other-keys" (click)="addOperation('+')">+</button>
       </div>
     </div>
     <div class="line">
@@ -77,7 +78,7 @@
         <button class="key-button" (click)="addDigit(',')">,</button>
       </div>
       <div class="col-3 key">
-        <button class="key-button other-keys">=</button>
+        <button class="key-button other-keys" (click)="calculateResult(true)">=</button>
       </div>
     </div>
   </div>

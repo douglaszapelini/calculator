@@ -6,3 +6,33 @@
 .dog-icon {
   width: 40px;
 }
+
+@media (max-width: 992px) {
+  .container {
+    font-size: 1rem;
+  }
+
+  .dog-icon {
+    width: 40px;
+  }
+}
+
+@media (max-width: 780px) {
+  .container {
+    font-size: 0.7rem;
+  }
+
+  .dog-icon {
+    width: 35px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    font-size: 0.5rem;
+  }
+
+  .dog-icon {
+    width: 30px;
+  }
+}
