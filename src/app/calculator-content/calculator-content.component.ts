@@ -3,9 +3,8 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'app-calculator-content',
   templateUrl: './calculator-content.component.html',
-  styleUrls: ['./calculator-content.component.css']
+  styleUrls: ['./calculator-content.component.css'],
 })
-
 export class CalculatorContentComponent {
   //Mapping keyboard events
   @HostListener('window:keydown', ['$event'])
@@ -29,7 +28,6 @@ export class CalculatorContentComponent {
   }
 
   addDigit(digit: string): void {
-
     if (this.resetAfterSetOperation && this.resetAfterGetResult) {
       this.resetAfterSetOperation = false;
       this.resetAfterGetResult = false;
@@ -82,7 +80,7 @@ export class CalculatorContentComponent {
     let afterComma = '';
 
     if (this.actualNumber.includes(',')) {
-      afterComma = actualNumber[1]
+      afterComma = actualNumber[1];
       const numberBeforeComma = Number.parseFloat(actualNumber[0]);
       beforeComma = new Intl.NumberFormat().format(numberBeforeComma);
       this.actualNumber = `${beforeComma},${afterComma}`;
@@ -95,7 +93,12 @@ export class CalculatorContentComponent {
 
   addOperation(operation: string): void {
     this.resetAfterSetOperation = true;
-    if ((this.firstNumber !== '' && this.actualNumber !== this.firstNumber) && this.lastNumber === '') {
+    this.verifyLastDigit();
+    if (
+      this.firstNumber !== '' &&
+      this.actualNumber !== this.firstNumber &&
+      this.lastNumber === ''
+    ) {
       this.calculateResult(false);
       this.operation = operation;
       return;
@@ -111,6 +114,7 @@ export class CalculatorContentComponent {
   calculateResult(resultButton: boolean): void {
     let firstNumber = 0;
     let lastNumber = 0;
+    this.verifyLastDigit();
     if (resultButton) {
       if (this.lastNumber === '') {
         this.lastNumber = this.actualNumber;
@@ -129,16 +133,25 @@ export class CalculatorContentComponent {
         this.actualNumber = OPERATIONS.add.function(firstNumber, lastNumber);
         break;
       case OPERATIONS.subtract.symbol:
-        this.actualNumber = OPERATIONS.subtract.function(firstNumber, lastNumber);
+        this.actualNumber = OPERATIONS.subtract.function(
+          firstNumber,
+          lastNumber
+        );
         break;
       case OPERATIONS.multiply.symbol:
-        this.actualNumber = OPERATIONS.multiply.function(firstNumber, lastNumber);
+        this.actualNumber = OPERATIONS.multiply.function(
+          firstNumber,
+          lastNumber
+        );
         break;
       case OPERATIONS.divide.symbol:
         this.actualNumber = OPERATIONS.divide.function(firstNumber, lastNumber);
         break;
       case OPERATIONS.percentage.symbol:
-        this.actualNumber = OPERATIONS.percentage.function(firstNumber, lastNumber);
+        this.actualNumber = OPERATIONS.percentage.function(
+          firstNumber,
+          lastNumber
+        );
         break;
       default:
         return;
@@ -150,6 +163,12 @@ export class CalculatorContentComponent {
 
   parseStringToFloat(str: string): number {
     return Number.parseFloat(str.replaceAll('.', '').replace(',', '.'));
+  }
+
+  verifyLastDigit(): void {
+    if (this.actualNumber.charAt(this.actualNumber.length - 1) === ',') {
+      this.actualNumber = this.actualNumber.slice(0, -1);
+    }
   }
 
   keyboardEvents(event: KeyboardEvent): void {
